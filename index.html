@@ -1,15 +1,148 @@
-<!DOCTYPE html><html lang="es"><head>
-    <meta charset="utf-8">
-    <title>Jesús Sánchez Carbonero</title>
-    <base href="/">
-    <meta name="google-site-verification" content="nXXa-DoTI8nU8jfpxDD9EtelojJKlYuH1ZkmenXwHLo">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel=" icon " type="image/x-icon " href="favicon.ico">
-    <link rel="stylesheet " href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css " integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p " crossorigin="anonymous ">
-<style>@import url(https://fonts.googleapis.com/css2?family=Klee+One&display=swap);*{margin:0;padding:0;box-sizing:border-box;}body,html{background-color:#e1f0cc;font-family:Klee One;color:#010126;scroll-behavior:smooth;}</style><link rel="stylesheet" href="styles.72e1873d338df1de84df.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.72e1873d338df1de84df.css"></noscript></head>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Mi portfolio</title>
+</head>
 
 <body>
-    <app-root></app-root>
-<script src="runtime-es2017.b2044d9ae52d7430b8c5.js" type="module"></script><script src="runtime-es5.b2044d9ae52d7430b8c5.js" nomodule defer></script><script src="polyfills-es5.959516b022fe2aa8e93a.js" nomodule defer></script><script src="polyfills-es2017.f5b2a69f59c12b151ade.js" type="module"></script><script src="main-es2017.b925d8e65dc3d23dfe53.js" type="module"></script><script src="main-es5.b925d8e65dc3d23dfe53.js" nomodule defer></script>
+    <header class="container-fluid bg-welcome">
+        <div class="container color-jasmine p-4 text-center">
+            <img src="img/yo.svg" alt="" width="200px" height="200px">
+            <h1>Jesús Sánchez Carbonero</h1>
+            <h3>Junior Full Stack Developer</h3>
+        </div>
+    </header>
+    <div id="projects" class="container mt-2">
+        <p class="mt-2">&emsp;Tengo más de veinte años de experiencia en el sector de la seguridad, pero mi pasión y
+            dedicación por la programación me llevaron a titularme como <b>técnico en desarrollo de aplicaciones web</b>
+            en
+            el <em>"Institut Obert de Catalunya"</em>.  Ahora mi propósito es poder poner en práctica todos los
+            conocimientos adquiridos en estos años y dedicarme a mi afición favorita, que es programar.</p>
+        <h2>Mis proyectos:</h2>
+        <div class="flex mt-1">
+            <div class="card">
+                <img src="img/mayoralseguretat.png" alt="">
+                <h3>🔑 Sitemes de Seguretat Mayoral</h3>
+                <p>Ha sido desde hace tiempo mi proyecto más importante y uno con los que más he aprendido. Es una
+                    aplicación web con un drashboard que permite gestionar todos los productos y ver estadísticas del
+                    sitio.
+                    Está desarrollado con Angular, Laravel,
+                    Bootstrap...
+                </p>
+                <a href="https://mayoralseguretat.com/">
+                    <h2>👉 Ir al sitio</h2>
+                </a>
+            </div>
+            <div class="card">
+                <img src="img/spiridon.png" alt="">
+                <h3>🏃 Spiridon</h3>
+                <p>Este pequeño proyecto lo desarrollé con un micro-framework llamado Lumen, utiliza JQuery y Bootstrap
+                    es
+                    como una especie de red social donde los socios del equipo pueden postear sus imágenes y
+                    comentarlas.
+                </p>
+                <a href="https://spiridon.es/">
+                    <h2>👉 Ir al sitio</h2>
+                </a>
+            </div>
+            <div class="card">
+                <video controls>
+                    <source src="img/CortoEasyFood.mp4" type="video/mp4">
+                </video>
+                <h3>🍣 EasyFood</h3>
+                <p>Aunque realmente no es un proyecto funcional es quizás del que este más orgulloso. Junto a mi
+                    compañero
+                    de equipo desarrollamos este proyecto de final de curso que nos permitió obtener una buena nota. Es
+                    una
+                    aplicación donde los restaurantes
+                    pueden publicar sus menús y los clientes realizar reservas. Está desarrollado con Java, SpringBoot,
+                    Jquery, Bootstrap...</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-weepping mt-2">
+        <div id="abilities" class="container p-2">
+            <h2>Mís habilidades</h2>
+            <br>
+            <div class="grid-abil">
+                <div class="mx-1 abil up-hover">
+                    <img src="img/java-4.svg" alt="Java">
+                    <p>Java</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/spring-3.svg" alt="Springboot">
+                    <p>Spring Boot</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/logo-javascript.svg" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/typescript.svg" alt="Typescript">
+                    <p>TypeScript</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/angular-icon.svg" alt="Angular">
+                    <p>Angular</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/nodejs-2.svg" alt="NodeJS">
+                    <p>NodeJS</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/express-109.svg" alt="ExpressJS">
+                    <p>ExpressJS</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/html-1.svg" alt="Html5">
+                    <p>HTML 5</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/css-3.svg" alt="Css3">
+                    <p>CSS 3</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/sass-1.svg" alt="Sass">
+                    <p>Sass</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/php-1.svg" alt="Php">
+                    <p>PHP</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/laravel-2.svg" alt="Laravel">
+                    <p>Laravel</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/tux.svg" alt="Linux">
+                    <p>Linux</p>
+                </div>
+                <div class="mx-1 abil up-hover">
+                    <img src="img/git.svg" alt="Git">
+                    <p>Git</p>
+                </div>
+            </div>
 
-</body></html>
+        </div>
+    </div>
+    <footer class="container-fluid bg-drifting">
+        <div class="container color-jasmine p-4 text-center">
+            <a href="https://www.linkedin.com/in/jes%C3%BAs-s%C3%A1nchez-carbonero-96a856179" class="mx-1 up-hover">
+                <p>LinkedIn</p><img src="img/linkedin-icon-2.svg" alt="Linkedin" width="60px" height="60px">
+            </a>
+            <a href="https://www.instagram.com/jsancarb/" class="mx-1 up-hover">
+                <p>Instagram</p><img src="img/instagram-2-1.svg" alt="Instagram" width="60px" height="60px">
+            </a>
+            <a href="https://twitter.com/jsancarb" class="mx-1 up-hover">
+                <p>Twitter</p><img src="img/twitter-6.svg" alt="Instagram" width="60px" height="60px">
+            </a>
+        </div>
+    </footer>
+</body>
+
+</html>
