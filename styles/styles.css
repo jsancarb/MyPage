@@ -222,60 +222,6 @@ a:link, a:visited, a:active {
   text-align: right;
 }
 
-#contact {
-  max-width: 500px;
-  color: #010126;
-}
-
-#contact label {
-  display: block;
-}
-
-#contact input:-webkit-autofill,
-#contact input:-webkit-autofill:hover,
-#contact input:-webkit-autofill:focus,
-#contact input:-webkit-autofill:active {
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-#contact input[type="text"],
-#contact input[type="email"],
-#contact textarea,
-#contact textarea:-webkit-autofill {
-  margin-bottom: 1em;
-  display: block;
-  width: 100%;
-  background: transparent;
-  border: none;
-  outline-width: 0;
-  border-bottom: 1px solid #010126;
-  font-size: 1.2em;
-  resize: none;
-}
-
-#contact input[type="submit"] {
-  background-color: transparent;
-  padding: 0.6em;
-  border-color: #010126;
-  margin: 1em;
-  font-size: 1.2em;
-  width: 60%;
-  margin-left: 20%;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-#contact input[type="submit"]:hover {
-  background-color: #613463;
-  color: #e1f0cc;
-}
-
-#contact input[type="submit"]:active {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
-}
-
 #menu div > a {
   display: none;
 }
