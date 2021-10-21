@@ -157,51 +157,6 @@ a {
     text-align: right;
 }
 
-#contact {
-    max-width: 500px;
-    color: $welcome;
-    label {
-        display: block;
-    }
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover,
-    input:-webkit-autofill:focus,
-    input:-webkit-autofill:active {
-        transition: background-color 5000s ease-in-out 0s;
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea,
-    textarea:-webkit-autofill {
-        margin-bottom: 1em;
-        display: block;
-        width: 100%;
-        background: transparent;
-        border: none;
-        outline-width: 0;
-        border-bottom: 1px solid $welcome;
-        font-size: 1.2em;
-        resize: none;
-    }
-    input[type="submit"] {
-        background-color: transparent;
-        padding: 0.6em;
-        border-color: $welcome;
-        margin: 1em;
-        font-size: 1.2em;
-        width: 60%;
-        margin-left: 20%;
-        transition: all 0.2s;
-        &:hover {
-            background-color: $drifting;
-            color: $jasmine;
-        }
-        &:active {
-            transform: scale(0.95);
-        }
-    }
-}
-
 #menu div > a {
     display: none;
 }

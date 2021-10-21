@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="google-site-verification" content="oF7TL_qYa1BEZEajDP9EuZY6Bktk24ABPG4vTKqfLCU" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Mi portfolio</title>
 </head>
-
 <body>
     <header class="container-fluid bg-welcome">
         <div class="container color-jasmine p-4 text-center">
@@ -19,6 +19,17 @@
             <h3>Junior Full Stack Developer</h3>
         </div>
     </header>
+    <div id="menu" class="container-fluid bg-weepping">
+        <div class="container">
+            <a class="mx-1" onclick="handleMenu();">
+                <p>Menú</p><i class="fas fa-3x fa-bars"></i>
+            </a>
+            <ul>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#abilities">Habilidades</a></li>
+            </ul>
+        </div>
+    </div>
     <div id="projects" class="container mt-2">
         <p class="mt-2">&emsp;Tengo más de veinte años de experiencia en el sector de la seguridad, pero mi pasión y
             dedicación por la programación me llevaron a titularme como <b>técnico en desarrollo de aplicaciones web</b>
@@ -146,5 +157,20 @@
         </div>
     </footer>
 </body>
-
+<script>
+    let menuVisible = false;
+    let button = document.querySelector("#menu i");
+    let menu = document.querySelector("#menu ul");
+    function handleMenu(){
+        if(menuVisible = !menuVisible){
+            button.classList.remove("fa-bars");
+            button.classList.add("fa-times");
+            menu.classList.add("menu-visible");
+        }else{
+            button.classList.remove("fa-times");
+            button.classList.add("fa-bars");
+            menu.classList.remove("menu-visible");
+        }
+    }
+</script>
 </html>
