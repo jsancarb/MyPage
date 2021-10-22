@@ -131,6 +131,7 @@ var app = new Vue({
         reset() {
             this.board.fill("");
             this.areWinner = false;
+            this.text = "";
             this.text = "¡Juega con mi bot!";
             this.count = 0;
         },
