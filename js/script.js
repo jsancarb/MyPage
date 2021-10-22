@@ -60,9 +60,10 @@ var app = new Vue({
                     } else if (this.countX() === 1) {
                         resolve(4);
                     }
-                    if (this.isDangerComb("O")) {
+                    if (this.isDangerComb("O")!==false) {
                         resolve(this.isDangerComb("O"));
-                    } else if (this.isDangerComb("X")) {
+                    } else if (this.isDangerComb("X")!==false) {
+                        console.log("danger");
                         resolve(this.isDangerComb("X"));
                     } else {
                         let rand;
@@ -92,21 +93,18 @@ var app = new Vue({
                     this.board[this.winnerResult[i][2]] === ""
                 ) {
                     result = this.winnerResult[i][2];
-                    break;
                 } else if (
                     this.board[this.winnerResult[i][0]] === letter &&
                     this.board[this.winnerResult[i][1]] === "" &&
                     this.board[this.winnerResult[i][2]] === letter
                 ) {
                     result = this.winnerResult[i][1];
-                    break;
                 } else if (
                     this.board[this.winnerResult[i][0]] === "" &&
                     this.board[this.winnerResult[i][1]] === letter &&
                     this.board[this.winnerResult[i][2]] === letter
                 ) {
                     result = this.winnerResult[i][0];
-                    break;
                 }
             }
             return result;
