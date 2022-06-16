@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="google-site-verification" content="oF7TL_qYa1BEZEajDP9EuZY6Bktk24ABPG4vTKqfLCU" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Mi portfolio</title>
 </head>
 
@@ -25,10 +23,10 @@
         </header>
         <div id="menu" class="container-fluid bg-weepping">
             <div class="container">
-                <a class="mx-1" v-on:click="handleMenu()">
-                    <p>Menú</p><i class="fas fa-3x" v-bind:class="ico"></i>
+                <a class="mx-1" @click="handleMenu()">
+                    <p>Menú</p><i class="fas fa-3x" :class="ico"></i>
                 </a>
-                <ul v-bind:class="[menuVisible?'menu-visible':'']">
+                <ul :class="[menuVisible?'menu-visible':'']">
                     <li><a href="#projects">Proyectos</a></li>
                     <li><a href="#abilities">Habilidades</a></li>
                 </ul>
@@ -54,19 +52,6 @@
                         Bootstrap...
                     </p>
                     <a href="https://mayoralseguretat.com/">
-                        <h2>👉 Ir al sitio</h2>
-                    </a>
-                </div>
-                <div class="card">
-                    <img src="img/spiridon.png" alt="">
-                    <h3>🏃 Spiridon</h3>
-                    <p>Este pequeño proyecto lo desarrollé con un micro-framework llamado Lumen, utiliza JQuery y
-                        Bootstrap
-                        es
-                        como una especie de red social donde los socios del equipo pueden postear sus imágenes y
-                        comentarlas.
-                    </p>
-                    <a href="https://spiridon.es/">
                         <h2>👉 Ir al sitio</h2>
                     </a>
                 </div>
@@ -189,6 +174,6 @@
         </footer>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="./js/script.js"></script>
 </html>

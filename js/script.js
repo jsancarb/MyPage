@@ -63,7 +63,6 @@ var app = new Vue({
                     if (this.isDangerComb("O")!==false) {
                         resolve(this.isDangerComb("O"));
                     } else if (this.isDangerComb("X")!==false) {
-                        console.log("danger");
                         resolve(this.isDangerComb("X"));
                     } else {
                         let rand;
