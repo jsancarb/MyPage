@@ -10,6 +10,9 @@ export default {
   components: {
     IndexPage,
   },
+  mounted() {
+    document.title = "Jesús Sánchez Carbonero";
+  },
 };
 </script>
 
