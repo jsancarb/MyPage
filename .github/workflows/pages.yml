@@ -1,17 +1,14 @@
-name: Build and Deploy
+name: Build Vue
 on: [push]
 jobs:
-  build-and-deploy:
+  build_vue:
     runs-on: ubuntu-latest
+    name: Build Vue
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: jsancarb/MyPage
-        TARGET_BRANCH: master
-        BUILD_SCRIPT: npm run build
-        BUILD_DIR: dist/
+    - uses: actions/checkout@v2
+    - id: Build-Vue
+      uses: xRealNeon/VuePagesAction@1.0.1
+      with:
+        username: 'jsancarb'
+        reponame: 'MyPage'
+        token: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
