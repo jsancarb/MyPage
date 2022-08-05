@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+$white: #ffffff;
+$dark-blue: #11065a;
+$green: #00ff95;
+$dark: #1a1a25;
+
+@font-face {
+  font-family: "SourceCodePro";
+  src: local("SourceCodePro"),
+    url(./fonts/SourceCodePro-VariableFont_wght.ttf) format("truetype");
+}
+#app {
+  font-family: "SourceCodePro";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@for $i from 1 through 5 {
+  h#{5-$i} {
+    font-size: 1em * $i + 2;
+  }
+}
+
+@for $i from 1 through 5 {
+  .pa-#{$i} {
+    padding: 1em * $i;
+  }
+}
+
+@for $i from 1 through 5 {
+  .px-#{$i} {
+    padding-left: 1em * $i;
+    padding-right: 1em * $i;
+  }
+}
+
+@for $i from 1 through 5 {
+  .ma-#{$i} {
+    padding: 1em * $i;
+  }
+}
+
+@for $i from 1 through 5 {
+  .mx-#{$i} {
+    margin-left: 1em * $i;
+    margin-right: 1em * $i;
+  }
+}
+
+.mx-auto{
+  margin: auto;
+}
+
+.bg-dark-blue {
+  background-color: $dark-blue;
+}
+.bg-green {
+  background-color: $green;
+}
+.bg-dark {
+  background-color: $dark;
+}
+.white {
+  color: $white;
+}
+.dark {
+  color: $dark;
+}
+.dark-blue {
+  color: $dark-blue;
+}
+.green {
+  color: $green;
+}
+.text-shadow {
+  text-shadow: 1px 1px 1px black;
+}
+.text-center {
+  margin: auto;
+  text-align: center;
+}
