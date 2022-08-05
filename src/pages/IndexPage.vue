@@ -631,12 +631,22 @@ header {
     font-size: 0.7em;
     div {
       font-size: 0.9em;
+      small{
+        font-size: 1.4em;
+      }
     }
   }
   #contact {
     font-size: 0.7em;
     > div {
       width: 90%;
+      > div {
+        >img{
+          max-width: 100px;
+        }
+      }
+
+
     }
   }
 }
