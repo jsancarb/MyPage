@@ -44,10 +44,27 @@
       </video>
       <div>
         <div class="white text-shadow">
-          <h4>Proyectos:</h4>
-          <h5>mayoralseguretat.com</h5>
-          <h5>nopas.cesc-it.com</h5>
-          <h5>plataforma.cisle.es</h5>
+          <h4>Proyectos propios:</h4>
+          <ul>
+            <li>
+              <a href="https://www.mayoralseguretat.com/"
+                ><h5>mayoralseguretat.com</h5></a
+              >
+            </li>
+          </ul>
+          <h4>Proyectos en los que he trabajado:</h4>
+          <ul>
+            <li>
+              <a href="https://nopas.cesc-it.com/"
+                ><h5>nopas.cesc-it.com</h5></a
+              >
+            </li>
+            <li>
+              <a href="https://plataforma.cisle.es/"
+                ><h5>plataforma.cisle.es</h5></a
+              >
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -329,6 +346,9 @@ header {
   transition: all 0.5s ease-in-out;
 }
 #projects {
+  span {
+    z-index: 4;
+  }
   z-index: 3;
   top: 150%;
   left: 0;
@@ -338,26 +358,27 @@ header {
   transition: all 0.5s ease-in-out;
   > video {
     object-fit: cover;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    object-position: center center;
+    width: 100vw;
+    height: 100vh;
   }
   > div {
-    background-color: rgba(105, 25, 129, 0.432);
+    background-color: rgba(105, 25, 129, 0.24);
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     > div {
+      height: 50%;
       padding: 3em;
       position: absolute;
       bottom: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.562);
+      background: rgba(0, 0, 0, 0.8);
+      li {
+        margin-left: 3em;
+      }
     }
   }
 }
@@ -465,6 +486,12 @@ header {
       div {
         gap: 3px;
       }
+    }
+  }
+  #projects {
+    font-size: 0.7em;
+    div {
+      font-size: 0.8em;
     }
   }
 }
