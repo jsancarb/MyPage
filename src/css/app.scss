@@ -37,6 +37,13 @@ $dark: #1a1a25;
 }
 
 @for $i from 1 through 5 {
+  .py-#{$i} {
+    padding-top: 1em * $i;
+    padding-bottom: 1em * $i;
+  }
+}
+
+@for $i from 1 through 5 {
   .ma-#{$i} {
     padding: 1em * $i;
   }

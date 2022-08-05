@@ -32,6 +32,7 @@
           >
             <img :src="skill.img" :alt="skill.name" />
             <p>{{ skill.name }}</p>
+            <small>{{ skill.score }}</small>
           </div>
         </div>
       </div>
@@ -43,28 +44,81 @@
         <source src="@/assets/video/proyectos.mp4" type="video/mp4" />
       </video>
       <div>
-        <div class="white text-shadow">
-          <h4>Proyectos propios:</h4>
+        <div class="white">
+          <h4>Proyectos:</h4>
           <ul>
             <li>
               <a href="https://www.mayoralseguretat.com/"
                 ><h5>mayoralseguretat.com</h5></a
               >
+              <small
+                >Sitio web desarrollado con Laravel y Angular, con un backoffice
+                que permite gestionar los productos.</small
+              >
             </li>
           </ul>
-          <h4>Proyectos en los que he trabajado:</h4>
+          <h4>Colaboraciones:</h4>
           <ul>
             <li>
               <a href="https://nopas.cesc-it.com/"
                 ><h5>nopas.cesc-it.com</h5></a
+              >
+              <small
+                >Aplicacion web de facturación desarrollada con Spring Boot,
+                Quasar y PostgreSQL.</small
               >
             </li>
             <li>
               <a href="https://plataforma.cisle.es/"
                 ><h5>plataforma.cisle.es</h5></a
               >
+              <small
+                >Aplicacion web para la gestión de subvenciones desarrollada con
+                Spring Boot, Vuetify y MySQL.</small
+              >
             </li>
           </ul>
+        </div>
+      </div>
+      <m-icon name="chevron-double-down" size="xl" @click="handlePage(4)" />
+    </div>
+    <div id="contact" class="white" :class="{ show: visibleContact }">
+      <m-icon name="chevron-double-up" size="xl" @click="handlePage(3)" />
+      <div>
+        <h4>Contacto:</h4>
+        <div>
+          <img
+            src="@/assets/img/foto.jpg"
+            alt="Jesús"
+            class="rounded text-center py-2"
+          />
+        </div>
+        <div>
+          <div
+            class="mx-1 skill up-hover visible"
+            @click="
+              goTo(
+                'https://www.linkedin.com/in/jes%C3%BAs-s%C3%A1nchez-carbonero-96a856179'
+              )
+            "
+          >
+            <img src="@/assets/img/linkedin-icon-2.svg" alt="linkedin" />
+            <p>LinkedIn</p>
+          </div>
+          <div
+            class="mx-1 skill up-hover visible"
+            @click="goTo('https://www.instagram.com/jsancarb/')"
+          >
+            <img src="@/assets/img/instagram-2-1.svg" alt="Instagram" />
+            <p>Instagram</p>
+          </div>
+          <div
+            class="mx-1 skill up-hover visible"
+            @click="goTo('https://twitter.com/jsancarb')"
+          >
+            <img src="@/assets/img/twitter-6.svg" alt="Twitter" />
+            <p>Twitter</p>
+          </div>
         </div>
       </div>
     </div>
@@ -83,49 +137,92 @@ export default {
     const visibleDescription = ref(false);
     const visibleSkills = ref(false);
     const visibleProjects = ref(false);
+    const visibleContact = ref(false);
     const skills = ref([
       {
         img: require("@/assets/img/spring-3.svg"),
         name: "Springboot",
+        score: "🔸🔸🔸🔸🔹",
         visible: false,
       },
-      { img: require("@/assets/img/java-4.svg"), name: "Java", visible: false },
+      {
+        img: require("@/assets/img/java-4.svg"),
+        name: "Java",
+        score: "🔸🔸🔸🔸🔸",
+        visible: false,
+      },
       {
         img: require("@/assets/img/logo-javascript.svg"),
         name: "JavaScript",
+        score: "🔸🔸🔸🔸🔹",
         visible: false,
       },
       {
         img: require("@/assets/img/typescript.svg"),
         name: "Typescript",
+        score: "🔸🔸🔸🔹🔹",
         visible: false,
       },
       {
         img: require("@/assets/img/angular-icon.svg"),
         name: "Angular",
+        score: "🔸🔸🔸🔹🔹",
         visible: false,
       },
-      { img: require("@/assets/img/vue-9.svg"), name: "Vue", visible: false },
+      {
+        img: require("@/assets/img/vue-9.svg"),
+        name: "Vue",
+        score: "🔸🔸🔸🔸🔸",
+        visible: false,
+      },
       {
         img: require("@/assets/img/nodejs-2.svg"),
         name: "NodeJS",
+        score: "🔸🔸🔸🔸🔹",
         visible: false,
       },
       {
         img: require("@/assets/img/html-1.svg"),
         name: "Html5",
+        score: "🔸🔸🔸🔸🔸",
         visible: false,
       },
-      { img: require("@/assets/img/css-3.svg"), name: "Css3", visible: false },
-      { img: require("@/assets/img/sass-1.svg"), name: "Sass", visible: false },
-      { img: require("@/assets/img/php-1.svg"), name: "Php", visible: false },
+      {
+        img: require("@/assets/img/css-3.svg"),
+        name: "Css3",
+        score: "🔸🔸🔸🔸🔸",
+        visible: false,
+      },
+      {
+        img: require("@/assets/img/sass-1.svg"),
+        name: "Sass",
+        score: "🔸🔸🔸🔸🔹",
+        visible: false,
+      },
+      {
+        img: require("@/assets/img/php-1.svg"),
+        name: "Php",
+        score: "🔸🔸🔸🔸🔹",
+        visible: false,
+      },
       {
         img: require("@/assets/img/laravel-2.svg"),
         name: "Laravel",
+        score: "🔸🔸🔸🔸🔹",
         visible: false,
       },
-      { img: require("@/assets/img/tux.svg"), name: "Linux", visible: false },
-      { img: require("@/assets/img/git.svg"), name: "Git", visible: false },
+      {
+        img: require("@/assets/img/tux.svg"),
+        name: "Linux",
+        score: "🔸🔸🔸🔸🔸",
+        visible: false,
+      },
+      {
+        img: require("@/assets/img/git.svg"),
+        name: "Git",
+        score: "🔸🔸🔸🔸🔹",
+        visible: false,
+      },
     ]);
     let lastY = null;
     let timer = true;
@@ -146,7 +243,7 @@ export default {
         setTimeout(() => {
           timer = true;
         }, 300);
-        if (event.wheelDeltaY < 0 && page < 3) {
+        if (event.wheelDeltaY < 0 && page < 4) {
           page++;
           handlePage(page);
         } else if (event.wheelDeltaY > 0 && page > 0) {
@@ -159,7 +256,7 @@ export default {
       event.preventDefault();
       rep++;
       let nowY = event?.touches[0].clientY;
-      if (nowY < lastY && page < 3 && rep > 8) {
+      if (nowY < lastY && page < 4 && rep > 8) {
         page++;
         handlePage(page);
         rep = 0;
@@ -188,6 +285,10 @@ export default {
           break;
         case 3:
           visibleProjects.value = true;
+          visibleContact.value = false;
+          break;
+        case 4:
+          visibleContact.value = true;
           break;
       }
     }
@@ -212,14 +313,19 @@ export default {
         await new Promise((r) => setTimeout(r, 100));
       }
     }
+    function goTo(url) {
+      window.location.href = url;
+    }
     return {
       textShow,
       cursor,
       visibleDescription,
       visibleSkills,
       visibleProjects,
+      visibleContact,
       skills,
       handlePage,
+      goTo,
     };
   },
 };
@@ -337,7 +443,7 @@ header {
     transform: translate(-50%, -50%);
     div {
       display: grid;
-      gap: 5%;
+      gap: 7%;
       grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
       justify-content: center;
       align-items: center;
@@ -369,18 +475,51 @@ header {
     bottom: 0;
     left: 0;
     right: 0;
+    width: 100vw;
+    height: 100vh;
     > div {
       height: 50%;
-      padding: 3em;
+      padding: 5%;
       position: absolute;
       bottom: 0;
-      width: 100%;
+      width: 90%;
       background: rgba(0, 0, 0, 0.8);
       li {
         margin-left: 3em;
       }
     }
   }
+}
+#contact {
+  background: rgb(63, 94, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 226, 1) 100%
+  );
+  top: 150%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+  position: absolute;
+  > div {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    > div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+      justify-content: space-around;
+      align-items: flex-end;
+    }
+  }
+  transition: all 0.5s ease-in-out;
+}
+.rounded {
+  border-radius: 50%;
 }
 .skill {
   opacity: 0;
@@ -491,7 +630,13 @@ header {
   #projects {
     font-size: 0.7em;
     div {
-      font-size: 0.8em;
+      font-size: 0.9em;
+    }
+  }
+  #contact {
+    font-size: 0.7em;
+    > div {
+      width: 90%;
     }
   }
 }
