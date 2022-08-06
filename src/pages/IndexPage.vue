@@ -87,15 +87,41 @@
       <div>
         <h4>Contacto:</h4>
         <div>
-          <img
-            src="@/assets/img/foto.jpg"
-            alt="Jesús"
-            class="rounded text-center py-2"
-          />
+          <img src="@/assets/img/foto.jpg" alt="Jesús" class="rounded py-2" />
         </div>
-        <div>
+        <form @submit.prevent="sendEmail()">
+          <m-input
+            v-model="message.name"
+            label="Nombre"
+            type="text"
+            class="my-1"
+            required
+          />
+          <m-input
+            v-model="message.from"
+            label="Email"
+            type="email"
+            class="my-1"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
+          <m-text-area
+            v-model="message.text"
+            label="Mensaje"
+            type="text"
+            class="my-1"
+            required
+          />
+          <button class="btn white" type="submit">
+            Enviar<span
+              class="mdi mdi-send mx-1"
+              style="font-size: 1.5em; vertical-align: middle"
+            ></span>
+          </button>
+        </form>
+        <div class="ma-1">
           <div
-            class="mx-1 skill up-hover visible"
+            class="skill up-hover visible"
             @click="
               goTo(
                 'https://www.linkedin.com/in/jes%C3%BAs-s%C3%A1nchez-carbonero-96a856179'
@@ -106,14 +132,14 @@
             <p>LinkedIn</p>
           </div>
           <div
-            class="mx-1 skill up-hover visible"
+            class="skill up-hover visible"
             @click="goTo('https://www.instagram.com/jsancarb/')"
           >
             <img src="@/assets/img/instagram-2-1.svg" alt="Instagram" />
             <p>Instagram</p>
           </div>
           <div
-            class="mx-1 skill up-hover visible"
+            class="skill up-hover visible"
             @click="goTo('https://twitter.com/jsancarb')"
           >
             <img src="@/assets/img/twitter-6.svg" alt="Twitter" />
@@ -127,7 +153,13 @@
 
 <script>
 import { ref, onMounted } from "vue";
+import axios from "axios";
+import mInput from "@/components/m-input.vue";
+import MIcon from "@/components/m-icon.vue";
+import MTextArea from "@/components/m-text-area.vue";
+
 export default {
+  components: { mInput, MIcon, MTextArea },
   setup() {
     const text =
       '"La tecnología me ha motivado siempre a evolucionar y poder reinventarme, el desarrollo web puedo decir que es mi pasión y ahora también mi oficio"';
@@ -138,6 +170,11 @@ export default {
     const visibleSkills = ref(false);
     const visibleProjects = ref(false);
     const visibleContact = ref(false);
+    const message = ref({
+      name: null,
+      from: null,
+      text: null,
+    });
     const skills = ref([
       {
         img: require("@/assets/img/spring-3.svg"),
@@ -316,6 +353,14 @@ export default {
     function goTo(url) {
       window.location.href = url;
     }
+    async function sendEmail() {
+      let response = await axios.post(
+        "https://my-api.alwaysdata.net/api/sendemail",
+        message.value
+      );
+      console.log(response.data);
+      alert("Enviado");
+    }
     return {
       textShow,
       cursor,
@@ -324,8 +369,10 @@ export default {
       visibleProjects,
       visibleContact,
       skills,
+      message,
       handlePage,
       goTo,
+      sendEmail,
     };
   },
 };
@@ -442,11 +489,9 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     div {
-      display: grid;
-      gap: 7%;
-      grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
-      justify-content: center;
-      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
     }
   }
   transition: all 0.5s ease-in-out;
@@ -504,16 +549,30 @@ header {
   z-index: 4;
   position: absolute;
   > div {
+    > :nth-child(2) {
+      text-align: center;
+    }
     position: absolute;
     width: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    > div {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
-      justify-content: space-around;
-      align-items: flex-end;
+    form {
+      margin: auto;
+      display: flex;
+      max-width: 500px;
+      flex-direction: column;
+    }
+    > :last-child {
+      margin: auto;
+      max-width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: flex-end;
+      img{
+        width: 50px;
+      }
     }
   }
   transition: all 0.5s ease-in-out;
@@ -523,9 +582,13 @@ header {
 }
 .skill {
   opacity: 0;
-  display: inline-block;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-weight: 600;
+  text-align: center;
+  width: 100px;
+  transition: all 0.5s;
   img {
     margin: auto;
     max-width: 100px;
@@ -594,7 +657,6 @@ header {
   }
 }
 .visible {
-  transition: all 1s;
   opacity: 1;
 }
 @media (max-width: 900px) {
@@ -631,22 +693,19 @@ header {
     font-size: 0.7em;
     div {
       font-size: 0.9em;
-      small{
+      small {
         font-size: 1.4em;
       }
     }
   }
   #contact {
-    font-size: 0.7em;
     > div {
       width: 90%;
       > div {
-        >img{
+        > img {
           max-width: 100px;
         }
       }
-
-
     }
   }
 }
