@@ -85,18 +85,12 @@
     <div id="contact" class="white" :class="{ show: visibleContact }">
       <m-icon name="chevron-double-up" size="xl" @click="handlePage(3)" />
       <div>
-        <h4>Contacto:</h4>
+        <h5>Contacto:</h5>
         <div>
-          <img src="@/assets/img/foto.jpg" alt="Jesús" class="rounded py-2" />
+          <img src="@/assets/img/foto.jpg" alt="Jesús" class="rounded" />
         </div>
         <form @submit.prevent="sendEmail()">
-          <m-input
-            v-model="message.name"
-            label="Nombre"
-            type="text"
-            class="my-1"
-            required
-          />
+          <m-input v-model="message.name" label="Nombre" type="text" required />
           <m-input
             v-model="message.from"
             label="Email"
@@ -109,7 +103,6 @@
             v-model="message.text"
             label="Mensaje"
             type="text"
-            class="my-1"
             required
           />
           <button class="btn white" type="submit">
@@ -491,7 +484,7 @@ header {
     div {
       display: flex;
       flex-wrap: wrap;
-      gap: 1em;
+      gap: 3px;
     }
   }
   transition: all 0.5s ease-in-out;
@@ -549,6 +542,7 @@ header {
   z-index: 4;
   position: absolute;
   > div {
+    max-width: 500px;
     > :nth-child(2) {
       text-align: center;
     }
@@ -560,17 +554,15 @@ header {
     form {
       margin: auto;
       display: flex;
-      max-width: 500px;
       flex-direction: column;
     }
     > :last-child {
       margin: auto;
-      max-width: 500px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-content: flex-end;
-      img{
+      img {
         width: 50px;
       }
     }
@@ -676,6 +668,7 @@ header {
     }
   }
   .skill {
+    width: 70px;
     img {
       max-width: 50px;
       max-height: 50px;

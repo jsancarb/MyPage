@@ -50,7 +50,7 @@ export default {
   border: 1px solid black;
   background-color: white;
   padding: 10px 50px 5px 50px;
-  height: 60px;
+  height: 40px;
   font-size: 1.2em;
   width: 100%;
 }
