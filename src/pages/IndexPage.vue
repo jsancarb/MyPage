@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div>
     <header id="header" class="white text-shadow">
-      <img src="@/assets/img/yo.svg" alt="logo" class="pa-2" />
-      <h3>¡Hola! me llamo Jesús y soy desarrollador Fullstack</h3>
+      <div><img src="@/assets/img/yo.svg" alt="logo" /></div>
+      <div><h3>¡Hola! me llamo Jesús y soy desarrollador Fullstack</h3></div>
       <m-icon name="chevron-double-down" size="xl" @click="handlePage(1)" />
     </header>
     <div id="description" :class="{ show: visibleDescription }">
@@ -378,22 +378,28 @@ body {
   overflow: hidden;
 }
 header {
+  box-sizing: border-box;
   z-index: 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   background-image: url("@/assets/img/header-background.jpg");
   background-position: center;
   background-size: cover;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   text-align: center;
-  h3 {
-    padding-bottom: 2em;
+  > :nth-child(1) {
+    height: 50vh;
+    padding: 5%;
+    box-sizing: border-box;
+    img {
+      height: 100%;
+    }
   }
-  img {
-    margin: auto;
-    max-width: 13vw;
+  > :nth-child(2) {
+    height: 40vh;
+    box-sizing: border-box;
+    h3 {
+      font-size: 10vh;
+    }
   }
 }
 #description {
@@ -408,21 +414,21 @@ header {
   right: 0;
   bottom: 0;
   z-index: 1;
-  opacity: 0;
   position: absolute;
-  transition: all 0.5s ease-in-out;
+  transition: top 0.5s ease-in-out;
   > div {
+    box-sizing: border-box;
     color: rgb(35, 228, 35);
     font-size: 0.8em;
     border-radius: 5px;
     border-width: 25px 4px 4px 4px;
     border-color: rgb(223, 211, 211);
     border-style: solid;
-    padding: 10% 5% 5% 5%;
+    padding: 5%;
     margin: auto;
     top: 50%;
     transform: translateY(-50%);
-    min-height: 40vh;
+    height: 50vh;
     max-width: 80vw;
     position: relative;
     > div {
@@ -465,11 +471,11 @@ header {
   }
 }
 #skills {
-  background: rgb(63, 94, 251);
+  background: rgb(63, 251, 126);
   background: linear-gradient(
     90deg,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 226, 1) 100%
+    rgb(63, 251, 126) 0%,
+    rgb(109, 70, 252) 100%
   );
   top: 150%;
   left: 150%;
@@ -490,7 +496,7 @@ header {
       justify-content: space-around;
     }
   }
-  transition: all 0.5s ease-in-out;
+  transition: top 0.5s linear, left 0.5s linear;
 }
 #projects {
   span {
@@ -502,7 +508,7 @@ header {
   right: 150%;
   bottom: 0;
   position: absolute;
-  transition: all 0.5s ease-in-out;
+  transition: top 0.5s linear, right 0.5s linear;
   > video {
     object-fit: cover;
     object-position: center center;
@@ -532,11 +538,11 @@ header {
   }
 }
 #contact {
-  background: rgb(63, 94, 251);
+  background: rgb(251, 101, 63);
   background: linear-gradient(
     90deg,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 226, 1) 100%
+    rgb(251, 101, 63) 0%,
+    rgb(70, 73, 252) 100%
   );
   top: 150%;
   left: 0;
@@ -577,7 +583,7 @@ header {
       }
     }
   }
-  transition: all 0.5s ease-in-out;
+  transition: top 0.5s linear;
 }
 .rounded {
   border-radius: 50%;
@@ -589,7 +595,6 @@ header {
   justify-content: space-between;
   font-weight: 600;
   text-align: center;
-  width: 100px;
   transition: all 0.5s;
   img {
     margin: auto;
@@ -600,7 +605,7 @@ header {
 .up-hover {
   transition: all 0.3s;
   &:hover {
-    transform: translateY(-0.5em);
+    transform: translateY(-4px);
   }
 }
 .show {
@@ -619,6 +624,8 @@ header {
   margin: auto;
   text-align: center;
   color: white;
+  height: 10vh;
+  font-size: 8vh;
 }
 @keyframes chevron-down {
   0% {
@@ -643,6 +650,8 @@ header {
   margin: auto;
   text-align: center;
   color: white;
+  height: 10vh;
+  font-size: 8vh;
 }
 @keyframes chevron-up {
   0% {
@@ -663,12 +672,10 @@ header {
 }
 @media (max-width: 900px) {
   header {
-    font-size: 0.7em;
-    h3 {
-      padding: 0 5% 4em 5%;
-    }
-    img {
-      max-width: 40%;
+    > :nth-child(2) {
+      h3 {
+        font-size: 6vh;
+      }
     }
   }
   #description {
