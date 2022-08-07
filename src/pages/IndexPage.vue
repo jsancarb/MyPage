@@ -257,7 +257,6 @@ export default {
     let lastY = null;
     let timer = true;
     let page = 0;
-    let rep = 0;
     let writing = false;
     onMounted(() => {
       document.addEventListener("wheel", handleWhell, { passive: false });
@@ -284,16 +283,19 @@ export default {
     }
     function handleTouch(event) {
       event.preventDefault();
-      rep++;
       let nowY = event?.touches[0].clientY;
-      if (nowY < lastY && page < 4 && rep > 8) {
-        page++;
-        handlePage(page);
-        rep = 0;
-      } else if (nowY > lastY && page > 0 && rep > 8) {
-        page--;
-        handlePage(page);
-        rep = 0;
+      if (timer && lastY) {
+        timer = false;
+        setTimeout(() => {
+          timer = true;
+        }, 500);
+        if (nowY < lastY && page > 0) {
+          page--;
+          handlePage(page);
+        } else if (nowY > lastY && page < 4) {
+          page++;
+          handlePage(page);
+        }
       }
       lastY = nowY;
     }
@@ -391,7 +393,7 @@ header {
   }
   img {
     margin: auto;
-    max-width: 20%;
+    max-width: 13vw;
   }
 }
 #description {
@@ -485,6 +487,7 @@ header {
       display: flex;
       flex-wrap: wrap;
       gap: 3px;
+      justify-content: space-around;
     }
   }
   transition: all 0.5s ease-in-out;
@@ -541,22 +544,29 @@ header {
   bottom: 0;
   z-index: 4;
   position: absolute;
+  overflow: hidden;
   > div {
+    width: 100%;
     max-width: 500px;
+    display: flex;
+    flex-flow: column;
+    height: 90%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     > :nth-child(2) {
       text-align: center;
     }
-    position: absolute;
-    width: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     form {
+      width: 100%;
       margin: auto;
       display: flex;
       flex-direction: column;
     }
     > :last-child {
+      width: 100%;
+      box-sizing: border-box;
       margin: auto;
       display: flex;
       flex-wrap: wrap;
@@ -692,9 +702,12 @@ header {
     }
   }
   #contact {
+    font-size: 0.7em;
     > div {
+      font-size: 1.5em;
       width: 90%;
       > div {
+        font-size: 0.7em;
         > img {
           max-width: 100px;
         }
