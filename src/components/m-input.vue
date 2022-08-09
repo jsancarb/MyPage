@@ -49,8 +49,8 @@ export default {
   border-radius: 5px;
   border: 1px solid black;
   background-color: white;
-  padding: 10px 50px 5px 50px;
-  height: 40px;
+  padding: 10px 20px 5px 20px;
+  height: 45px;
   font-size: 1.2em;
   width: 100%;
 }

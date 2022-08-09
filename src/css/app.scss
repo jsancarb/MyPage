@@ -58,6 +58,12 @@ $dark: #1a1a25;
 }
 
 @for $i from 1 through 5 {
+  .mt-#{$i} {
+    margin-top: 1em * $i;
+  }
+}
+
+@for $i from 1 through 5 {
   .my-#{$i} {
     margin-top: 1em * $i;
     margin-bottom: 1em * $i;

@@ -85,17 +85,13 @@
     <div id="contact" class="white" :class="{ show: visibleContact }">
       <m-icon name="chevron-double-up" size="xl" @click="handlePage(3)" />
       <div>
-        <h5>Contacto:</h5>
-        <div>
-          <img src="@/assets/img/foto.jpg" alt="Jesús" class="rounded" />
-        </div>
+        <h6>Contacto:</h6>
         <form @submit.prevent="sendEmail()">
           <m-input v-model="message.name" label="Nombre" type="text" required />
           <m-input
             v-model="message.from"
             label="Email"
             type="email"
-            class="my-1"
             required
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
@@ -141,6 +137,12 @@
         </div>
       </div>
     </div>
+    <div id="modal" :class="{ 'visible-modal': !modal }">
+      <div>
+        <span @click="modal = false">x</span>
+        <h4>{{ textoModal }}</h4>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -163,6 +165,8 @@ export default {
     const visibleSkills = ref(false);
     const visibleProjects = ref(false);
     const visibleContact = ref(false);
+    const modal = ref(false);
+    const textoModal = ref("");
     const message = ref({
       name: null,
       from: null,
@@ -350,11 +354,14 @@ export default {
     }
     async function sendEmail() {
       let response = await axios.post(
+        /* "http://localhost:5000/api/sendemail" */
         "https://my-api.alwaysdata.net/api/sendemail",
         message.value
       );
-      console.log(response.data);
-      alert("Enviado");
+      if (response.data) {
+        textoModal.value = "Mensaje enviado";
+        modal.value = true;
+      }
     }
     return {
       textShow,
@@ -365,6 +372,8 @@ export default {
       visibleContact,
       skills,
       message,
+      modal,
+      textoModal,
       handlePage,
       goTo,
       sendEmail,
@@ -385,13 +394,15 @@ header {
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  overflow: hidden;
   text-align: center;
   > :nth-child(1) {
     height: 50vh;
     padding: 5%;
     box-sizing: border-box;
     img {
-      height: 100%;
+      max-width: 50vw;
+      max-height: 100%;
     }
   }
   > :nth-child(2) {
@@ -415,6 +426,7 @@ header {
   bottom: 0;
   z-index: 1;
   position: absolute;
+  overflow: hidden;
   transition: top 0.5s ease-in-out;
   > div {
     box-sizing: border-box;
@@ -482,6 +494,7 @@ header {
   right: 0;
   bottom: 0;
   z-index: 2;
+  overflow: hidden;
   position: absolute;
   > div {
     position: absolute;
@@ -507,6 +520,7 @@ header {
   left: 0;
   right: 150%;
   bottom: 0;
+  overflow: hidden;
   position: absolute;
   transition: top 0.5s linear, right 0.5s linear;
   > video {
@@ -552,6 +566,9 @@ header {
   position: absolute;
   overflow: hidden;
   > div {
+    div {
+      margin-top: 3px;
+    }
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -579,7 +596,7 @@ header {
       justify-content: space-between;
       align-content: flex-end;
       img {
-        width: 50px;
+        width: 40px;
       }
     }
   }
@@ -627,6 +644,53 @@ header {
   height: 10vh;
   font-size: 8vh;
 }
+#modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
+  > div {
+    position: absolute;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid grey;
+    border-top: 25px solid grey;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+    > span {
+      position: absolute;
+      top: -27px;
+      right: 5px;
+      font-weight: 900;
+      font-size: 20px;
+    }
+  }
+  transition-delay: 0.3s;
+  transition: opacity 0.3s ease-in-out;
+}
+.visible-modal {
+  top:150vh !important;
+  opacity: 0 !important;
+  > div {
+    width: 0px !important;
+    height: 0px !important;
+    h4 {
+      display: none;
+    }
+  }
+}
+
 @keyframes chevron-down {
   0% {
     transform: translateY(0);
@@ -702,7 +766,7 @@ header {
   #projects {
     font-size: 0.7em;
     div {
-      font-size: 0.9em;
+      font-size: 0.8em;
       small {
         font-size: 1.4em;
       }

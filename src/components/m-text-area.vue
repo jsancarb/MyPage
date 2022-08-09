@@ -50,7 +50,7 @@ export default {
   border-radius: 5px;
   border: 1px solid black;
   background-color: white;
-  padding: 35px 50px 2px 50px;
+  padding: 25px 20px 2px 20px;
   height: 100px;
   font-size: 1.2em;
   width: 100%;
@@ -60,13 +60,13 @@ export default {
 .label {
   color: black;
   position: absolute;
-  top: 50%;
+  top: 25px;
   transform: translateY(-50%);
   left: 50px;
   transition: all 0.2s ease-in;
 }
 .input:focus ~ .label,
 .input:not(:placeholder-shown) ~ .label {
-  transform: translate(-15px, -50px) scale(0.75);
+  transform: translate(-15px, -25px) scale(0.75);
 }
 </style>
